@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>האקדמיה הגבוהה לכישוף וקסם | אלדוריה</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for Hebrew: Frank Ruhl Libre (Royal Serif) & Heebo (Clean Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Frank Ruhl Libre"', 'serif'],
+                        sans: ['"Heebo"', 'sans-serif'],
+                    },
+                    colors: {
+                        midnight: '#070913',
+                        royal: '#14112e',
+                        amethyst: '#2d1b4e',
+                        gold: {
+                            light: '#f9e596',
+                            DEFAULT: '#d4af37',
+                            dark: '#997a15',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(212, 175, 55, 0.3)' },
+                            '50%': { boxShadow: '0 0 30px rgba(212, 175, 55, 0.7)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Magical Effects & Transitions -->
+    <style>
+        body {
+            background-color: #070913;
+            color: #f3f4f6;
+            font-family: 'Heebo', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-magical {
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+
+        /* Magical Aurora & Starfield Background */
+        .aurora-bg {
+            background: radial-gradient(circle at 20% 20%, rgba(76, 29, 149, 0.25) 0%, transparent 45%),
+                        radial-gradient(circle at 80% 70%, rgba(180, 130, 30, 0.15) 0%, transparent 45%),
+                        radial-gradient(circle at 50% 50%, #0d1024 0%, #070913 100%);
+        }
+
+        /* Glassmorphism Magical Cards */
+        .magic-card {
+            background: rgba(20, 17, 46, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .magic-card:hover {
+            border-color: rgba(212, 175, 55, 0.75);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px -5px rgba(212, 175, 55, 0.2), 0 0 20px rgba(109, 40, 217, 0.3);
+        }
+
+        /* Gold Text Gradient */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #fff3b0 0%, #d4af37 50%, #b5891b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Gold Magical Button */
+        .btn-gold {
+            background: linear-gradient(135deg, #e5c158 0%, #c59b27 100%);
+            color: #070913;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+        }
+
+        .btn-gold:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.65);
+            filter: brightness(1.08);
+        }
+
+        /* SPA Page Transition Animations */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+        }
+
+        .page-section.active {
+            display: block;
+            animation: pageFadeIn 0.5s forwards ease-out;
+        }
+
+        @keyframes pageFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Nav Link Underline Effect */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after,
+        .nav-link.active-nav::after {
+            width: 100%;
+        }
+        .nav-link.active-nav {
+            color: #f9e596;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070913;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d1b4e;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+    </style>
+</head>
+<body class="aurora-bg min-h-screen flex flex-col relative selection:bg-gold selection:text-midnight">
+
+    <!-- Interactive Magic Sparkles Background Canvas -->
+    <canvas id="magic-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-midnight/85 backdrop-blur-md border-b border-gold/20 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Academy Emblem / Logo -->
+                <button onclick="navigateTo('home')" class="flex items-center gap-3 text-right group focus:outline-none">
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-amethyst to-midnight border border-gold/60 flex items-center justify-center shadow-md group-hover:animate-pulse-glow transition">
+                        <i class="fa-solid fa-hat-wizard text-gold text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="block font-magical text-xl sm:text-2xl font-bold text-gold-gradient tracking-wide">אקדמיית אלדוריה</span>
+                        <span class="block text-xs text-purple-300/80 tracking-wider">המוסד הגבוה לכישוף וקסם</span>
+                    </div>
+                </button>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <button onclick="navigateTo('home')" data-target="home" class="nav-link active-nav text-base font-medium text-gray-200 hover:text-gold-light transition py-1">
+                        דף בית
+                    </button>
+                    <button onclick="navigateTo('offer')" data-target="offer" class="nav-link text-base font-medium text-gray-200 hover:text-gold-light transition py-1">
+                        מה אנחנו מציעים
+                    </button>
+                    <button onclick="navigateTo('about')" data-target="about" class="nav-link text-base font-medium text-gray-200 hover:text-gold-light transition py-1">
+                        אודות
+                    </button>
+                    <button onclick="navigateTo('contact')" data-target="contact" class="nav-link text-base font-medium text-gray-200 hover:text-gold-light transition py-1">
+                        צור קשר
+                    </button>
+                </nav>
+
+                <!-- Desktop CTA Button -->
+                <div class="hidden md:block">
+                    <button onclick="navigateTo('contact')" class="btn-gold px-5 py-2.5 rounded-full text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                        <span>שליחת ינשוף</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" aria-label="פתח תפריט" class="p-2.5 rounded-xl border border-gold/30 text-gold hover:bg-royal transition">
+                        <i class="fa-solid fa-bars text-xl" id="mobile-menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-royal/95 backdrop-blur-xl border-b border-gold/30 px-4 pt-3 pb-6 space-y-2">
+            <button onclick="navigateTo('home')" data-target="home" class="mobile-nav-link block w-full text-right px-4 py-3 rounded-xl text-base font-medium text-gold-light bg-midnight/50">
+                <i class="fa-solid fa-fort-awesome ml-2 text-gold"></i> דף בית
+            </button>
+            <button onclick="navigateTo('offer')" data-target="offer" class="mobile-nav-link block w-full text-right px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-midnight/40">
+                <i class="fa-solid fa-wand-sparkles ml-2 text-gold"></i> מה אנחנו מציעים
+            </button>
+            <button onclick="navigateTo('about')" data-target="about" class="mobile-nav-link block w-full text-right px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-midnight/40">
+                <i class="fa-solid fa-book-journal-whills ml-2 text-gold"></i> אודות
+            </button>
+            <button onclick="navigateTo('contact')" data-target="contact" class="mobile-nav-link block w-full text-right px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-midnight/40">
+                <i class="fa-solid fa-scroll ml-2 text-gold"></i> צור קשר
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container (SPA Views) -->
+    <main class="flex-grow relative z-10">
+
+        <!-- ========================================================= -->
+        <!-- PAGE 1: דף בית (HOME)                                     -->
+        <!-- ========================================================= -->
+        <section id="page-home" class="page-section active">
+            <!-- Hero Section -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 lg:pt-20 lg:pb-28">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Hero Copy -->
+                    <div class="lg:col-span-7 text-center lg:text-right space-y-6">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amethyst/60 border border-gold/40 text-gold-light text-sm font-medium">
+                            <i class="fa-solid fa-sparkles text-gold"></i>
+                            <span>ההרשמה לשנת הלימודים התשפ"ז נפתחה</span>
+                        </div>
+                        
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white">
+                            גלו את הכוח החבוי בכם ב<span class="text-gold-gradient block sm:inline">אקדמיה הגבוהה לכישוף וקסם</span>
+                        </h1>
+                        
+                        <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            מעבר לערפילי הצפון, בטירה עתיקה השמורה בלחשי הסתרה בני אלף שנים, מחכה לכם מסע של רקיחת שיקויים, שליטה ביסודות, תעופה ומסתורין.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <button onclick="navigateTo('contact')" class="btn-gold w-full sm:w-auto px-8 py-4 rounded-2xl text-lg flex items-center justify-center gap-3">
+                                <span>הגש מועמדות עכשיו</span>
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </button>
+                            <button onclick="navigateTo('offer')" class="w-full sm:w-auto px-8 py-4 rounded-2xl text-lg font-medium border border-gold/40 text-gold-light hover:bg-royal/80 transition flex items-center justify-center gap-2">
+                                <span>גלה את מסלולי הלימוד</span>
+                                <i class="fa-solid fa-arrow-left text-sm"></i>
+                            </button>
+                        </div>
+
+                        <!-- Trust / Lore Indicators -->
+                        <div class="grid grid-cols-3 gap-4 pt-8 border-t border-gold/15 max-w-lg mx-auto lg:mx-0">
+                            <div>
+                                <div class="font-magical text-2xl sm:text-3xl font-bold text-gold">984</div>
+                                <div class="text-xs sm:text-sm text-gray-400">שנות מסורת קסם</div>
+                            </div>
+                            <div>
+                                <div class="font-magical text-2xl sm:text-3xl font-bold text-gold">4</div>
+                                <div class="text-xs sm:text-sm text-gray-400">בתי אצולה עתיקים</div>
+                            </div>
+                            <div>
+                                <div class="font-magical text-2xl sm:text-3xl font-bold text-gold">100%</div>
+                                <div class="text-xs sm:text-sm text-gray-400">חסינות ממוגלגים</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Magical Crest / Interactive Emblem Illustration -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center animate-float">
+                            <!-- Outer Rotating Runes Ring -->
+                            <svg class="absolute inset-0 w-full h-full animate-spin-slow opacity-60" viewBox="0 0 200 200">
+                                <defs>
+                                    <path id="circlePath" d="M 100, 100 m -82, 0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0" />
+                                </defs>
+                                <circle cx="100" cy="100" r="92" fill="none" stroke="#d4af37" stroke-width="0.8" stroke-dasharray="4 4"/>
+                                <circle cx="100" cy="100" r="74" fill="none" stroke="#a855f7" stroke-width="0.6"/>
+                                <text fill="#f9e596" font-size="7.5" letter-spacing="3.2" font-family="serif">
+                                    <textPath href="#circlePath">✦ אקדמיית אלדוריה לכישוף ✦ חוכמה • אומץ • מסתורין • יצירה </textPath>
+                                </text>
+                            </svg>
+
+                            <!-- Center Glowing Shield SVG -->
+                            <div class="relative z-10 w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-gradient-to-b from-amethyst/90 to-midnight border-2 border-gold shadow-[0_0_50px_rgba(212,175,55,0.4)] flex flex-col items-center justify-center p-6 text-center">
+                                <i class="fa-solid fa-dragon text-5xl sm:text-6xl text-gold mb-3 drop-shadow-[0_0_12px_rgba(212,175,55,0.8)]"></i>
+                                <span class="font-magical text-lg sm:text-xl font-bold text-gold-light">אור מתוך הצל</span>
+                                <span class="text-xs text-purple-200 mt-1">נוסד בשנת 1042 לספירה</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights Section -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gold-gradient mb-3">מדוע לבחור באלדוריה?</h2>
+                    <p class="text-gray-300 max-w-2xl mx-auto">שילוב נדיר בין כתבי יד עתיקים לבין פיתוח יכולות כישוף אישיות בסביבה בטוחה ומעוררת השראה.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="magic-card rounded-3xl p-8 text-center">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-amethyst/80 border border-gold/40 flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-chess-rook text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">ארבעת בתי האקדמיה</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            כל תלמיד ממוין לבית התואם את תכונות הנפש שלו: בית להבת הפניקס, בית מעמקי הים, בית שורש האלון ובית כנפי הרוח.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="magic-card rounded-3xl p-8 text-center">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-amethyst/80 border border-gold/40 flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-envelope-open-text text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">דואר ינשופים רשמי</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            הקבלה לאקדמיה מתבצעת באמצעות איגרת חתומה בשעווה סגולה המגיעה ישירות לחלונכם עם רדת החשכה.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="magic-card rounded-3xl p-8 text-center">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-amethyst/80 border border-gold/40 flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-flask-vial text-3xl text-gold"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">מעבדות קסם מתקדמות</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            חממות צמחים נדירים, קדירות נחושת מכושפות, אצטרובלים שמימיים ומגרשי אימוני תעופה מעל ענני ההר.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- PAGE 2: מה אנחנו מציעים (WHAT WE OFFER)                  -->
+        <!-- ========================================================= -->
+        <section id="page-offer" class="page-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 pb-24">
+                
+                <!-- Header -->
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="text-gold text-sm font-semibold tracking-widest uppercase">תוכנית הלימודים הרשמית</span>
+                    <h1 class="text-4xl sm:text-5xl font-bold text-gold-gradient mt-2 mb-4">פקולטות ומסלולי כישוף</h1>
+                    <p class="text-gray-300 text-lg">
+                        תוכנית לימודים תלת-שנתית המשלבת תיאוריה עתיקה ותרגול מעשי בשרביט, בהנחיית רבי-המגים המובילים בעולם.
+                    </p>
+                </div>
+
+                <!-- 6 Magical Courses Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-20">
+                    
+                    <!-- Course 1 -->
+                    <div class="magic-card rounded-3xl p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-gold/30 flex items-center justify-center">
+                                    <i class="fa-solid fa-mortar-pestle text-2xl text-gold"></i>
+                                </div>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gold/15 text-gold-light border border-gold/30">שנה א' - ג'</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">רקיחת שיקויים מתקדמת</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                אומנות המיזוג המדויק של עשבי מרפא זוהרים, אבקת ירח ודמעות עוף חול ליצירת שיקויי ריפוי, מזל והסוואה.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-purple-200">
+                            <span><i class="fa-solid fa-user-tie ml-1 text-gold"></i> פרופ' סרינה וייל</span>
+                            <span>מרתפי הקדירות</span>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="magic-card rounded-3xl p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-gold/30 flex items-center justify-center">
+                                    <i class="fa-solid fa-shield-halved text-2xl text-gold"></i>
+                                </div>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gold/15 text-gold-light border border-gold/30">חובה לכולם</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">לחשי הגנה ודו-קרב</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                שליטה במגיני אנרגיה, הדיפת קללות עתיקות, טקטיקות דו-קרב אצילי ונטרול יצורי צללים ללא פגע.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-purple-200">
+                            <span><i class="fa-solid fa-user-tie ml-1 text-gold"></i> מאסטר גדעון סטורם</span>
+                            <span>זירת המראות</span>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="magic-card rounded-3xl p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-gold/30 flex items-center justify-center">
+                                    <i class="fa-solid fa-moon text-2xl text-gold"></i>
+                                </div>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gold/15 text-gold-light border border-gold/30">שנה ב' - ג'</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">אסטרונומיה וניבוי עתידות</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                קריאת מפות כוכבים נעות, פענוח כדורי בדולח וטלסקופים מכושפים לחיזוי תנודות בזמן ובמרחב.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-purple-200">
+                            <span><i class="fa-solid fa-user-tie ml-1 text-gold"></i> האורקל אסטריה</span>
+                            <span>מגדל המצפה הגבוה</span>
+                        </div>
+                    </div>
+
+                    <!-- Course 4 -->
+                    <div class="magic-card rounded-3xl p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-gold/30 flex items-center justify-center">
+                                    <i class="fa-solid fa-paw text-2xl text-gold"></i>
+                                </div>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gold/15 text-gold-light border border-gold/30">שנה א' - ג'</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">טיפול ביצורים פלאיים</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                היכרות מקרוב עם היפוגריפים, ניפלרים, חדי-קרן וגורי דרקונים. לימוד שפת הסימנים וטיפוח בתי גידול.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-purple-200">
+                            <span><i class="fa-solid fa-user-tie ml-1 text-gold"></i> פרופ' ברנבי אוק</span>
+                            <span>שולי היער הלוחש</span>
+                        </div>
+                    </div>
+
+                    <!-- Course 5 -->
+                    <div class="magic-card rounded-3xl p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-gold/30 flex items-center justify-center">
+                                    <i class="fa-solid fa-gem text-2xl text-gold"></i>
+                                </div>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gold/15 text-gold-light border border-gold/30">מתקדמים</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">שינוי צורה ואלכימיה</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                שינוי המבנה המולקולרי של חפצים, הפיכת מתכות פשוטות לזהב טהור ולימוד יסודות האנימאגוס.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-purple-200">
+                            <span><i class="fa-solid fa-user-tie ml-1 text-gold"></i> פרופ' לוסיאן קיין</span>
+                            <span>היכל האלכימאים</span>
+                        </div>
+                    </div>
+
+                    <!-- Course 6 -->
+                    <div class="magic-card rounded-3xl p-7 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="w-14 h-14 rounded-2xl bg-purple-900/60 border border-gold/30 flex items-center justify-center">
+                                    <i class="fa-solid fa-broom text-2xl text-gold"></i>
+                                </div>
+                                <span class="text-xs px-3 py-1 rounded-full bg-gold/15 text-gold-light border border-gold/30">שנה א'</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">תעופה על מטאטא ומרכבות רוח</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                                יציבות אווירית, תמרונים חדים בין צריחי הטירה והכנה לנבחרת הקווידיץ' המלכותית של האקדמיה.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-purple-200">
+                            <span><i class="fa-solid fa-user-tie ml-1 text-gold"></i> קפטן ארין סקיי</span>
+                            <span>מדשאות העננים</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Mini-Widget: Sorting Hat / Magical House & Wand Finder -->
+                <div class="magic-card rounded-3xl p-8 sm:p-12 border-2 border-gold/40 max-w-4xl mx-auto relative overflow-hidden">
+                    <div class="absolute -top-16 -left-16 w-48 h-48 bg-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+                    
+                    <div class="text-center mb-8">
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold/20 border border-gold mb-3">
+                            <i class="fa-solid fa-hat-wizard text-2xl text-gold"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gold-gradient">מצפן המיון המכושף</h2>
+                        <p class="text-gray-300 mt-2">ענו על שאלה אחת וגלו לאיזה בית אצולה תשתייכו ואיזו ליבת שרביט תבחר בכם!</p>
+                    </div>
+
+                    <div id="sorting-quiz-container" class="space-y-6">
+                        <p class="text-center text-lg font-medium text-gold-light">מה מושך את ליבכם יותר מכל בלילה סוער?</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button onclick="runSortingRitual('phoenix')" class="p-4 rounded-2xl bg-midnight/70 border border-gold/30 hover:border-gold hover:bg-amethyst/50 transition text-right flex items-center gap-4 group">
+                                <span class="w-10 h-10 rounded-xl bg-red-900/50 border border-red-500/40 flex items-center justify-center text-red-400 group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-fire"></i>
+                                </span>
+                                <div>
+                                    <div class="font-bold text-white">להבת האח הבוערת</div>
+                                    <div class="text-xs text-gray-400">אומץ, תשוקה ויצירת לחשי אור</div>
+                                </div>
+                            </button>
+
+                            <button onclick="runSortingRitual('ocean')" class="p-4 rounded-2xl bg-midnight/70 border border-gold/30 hover:border-gold hover:bg-amethyst/50 transition text-right flex items-center gap-4 group">
+                                <span class="w-10 h-10 rounded-xl bg-blue-900/50 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-water"></i>
+                                </span>
+                                <div>
+                                    <div class="font-bold text-white">גלי הים העמוקים</div>
+                                    <div class="text-xs text-gray-400">חוכמה עתיקה, אינטואיציה ואסטרונומיה</div>
+                                </div>
+                            </button>
+
+                            <button onclick="runSortingRitual('oak')" class="p-4 rounded-2xl bg-midnight/70 border border-gold/30 hover:border-gold hover:bg-amethyst/50 transition text-right flex items-center gap-4 group">
+                                <span class="w-10 h-10 rounded-xl bg-emerald-900/50 border border-emerald-500/40 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-leaf"></i>
+                                </span>
+                                <div>
+                                    <div class="font-bold text-white">לחש העלים ביער</div>
+                                    <div class="text-xs text-gray-400">שיקויים, טבע וטיפול ביצורים פלאיים</div>
+                                </div>
+                            </button>
+
+                            <button onclick="runSortingRitual('wind')" class="p-4 rounded-2xl bg-midnight/70 border border-gold/30 hover:border-gold hover:bg-amethyst/50 transition text-right flex items-center gap-4 group">
+                                <span class="w-10 h-10 rounded-xl bg-purple-900/50 border border-purple-500/40 flex items-center justify-center text-purple-300 group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-wind"></i>
+                                </span>
+                                <div>
+                                    <div class="font-bold text-white">רוח הצפון החופשית</div>
+                                    <div class="text-xs text-gray-400">תעופה, אלכימיה ופריצת גבולות</div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- Result Box (Hidden initially) -->
+                        <div id="sorting-result" class="hidden mt-6 p-6 rounded-2xl bg-gradient-to-r from-amethyst/80 via-royal to-amethyst/80 border border-gold text-center animate-fadeIn">
+                            <div class="text-xs uppercase tracking-widest text-gold mb-1">המצפן הכריע!</div>
+                            <h3 id="result-house-name" class="text-2xl sm:text-3xl font-bold text-white mb-2"></h3>
+                            <p id="result-house-desc" class="text-gray-200 text-sm sm:text-base max-w-xl mx-auto mb-3"></p>
+                            <div class="inline-block px-4 py-1.5 rounded-full bg-midnight/80 border border-gold/40 text-gold-light text-xs">
+                                <i class="fa-solid fa-wand-sparkles ml-1"></i>
+                                <span id="result-wand-spec"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- PAGE 3: אודות (ABOUT)                                     -->
+        <!-- ========================================================= -->
+        <section id="page-about" class="page-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 pb-24">
+                
+                <!-- Lore Hero -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+                    <div class="lg:col-span-7 space-y-5">
+                        <span class="text-gold text-sm font-semibold tracking-widest">דברי הימים של אלדוריה</span>
+                        <h1 class="text-4xl sm:text-5xl font-bold text-gold-gradient">טירה החצובה בסלע ובכישוף</h1>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            בשנת 1042 לספירה, התאחדו ארבעה מגים גדולים כדי להקים מקלט בטוח שבו יוכלו צעירים בעלי ניצוץ קסם ללמוד את אומנויות הכישוף הרחק מעיניהם החושדות של בני האדם הרגילים.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            הטירה שוכנת על צוק מרחף מעל אגם הכסף, מוגנת במעטה ערפל תמידי. גרמי המדרגות שלה משנים כיוון בהתאם למצב רוחם של הכוכבים, ודיוקנאות המייסדים מעניקים עצות לתלמידים האובדים במסדרונות.
+                        </p>
+                    </div>
+
+                    <!-- Decorative Lore Card -->
+                    <div class="lg:col-span-5">
+                        <div class="magic-card rounded-3xl p-8 border border-gold/40 relative">
+                            <i class="fa-solid fa-quote-right text-4xl text-gold/30 absolute top-6 right-6"></i>
+                            <blockquote class="font-magical text-xl sm:text-2xl text-gold-light leading-relaxed pt-6 pb-4">
+                                "הקסם אינו מצוי בעץ השרביט או במילות הלחש, אלא באומץ הלב של האוחז בו להאיר את החשיכה."
+                            </blockquote>
+                            <div class="flex items-center gap-3 pt-4 border-t border-gold/20">
+                                <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold">
+                                    <i class="fa-solid fa-crown"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-white text-sm">ארכימג אלת'יאס הראשון</div>
+                                    <div class="text-xs text-gray-400">מייסד אקדמיית אלדוריה</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campus Landmarks -->
+                <div class="mb-20">
+                    <h2 class="text-3xl font-bold text-center text-gold-gradient mb-10">מתחמי הטירה המכושפים</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="magic-card rounded-3xl p-7">
+                            <div class="text-gold text-3xl mb-4"><i class="fa-solid fa-book-skull"></i></div>
+                            <h3 class="text-xl font-bold text-white mb-2">הספרייה האסורה</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                למעלה מ-400,000 כרכים שלוחשים זה לזה בלילה. ספרים בעלי רצון משלהם הקשורים בשרשראות כסף עד לקבלת אישור מיוחד מראש המגמה.
+                            </p>
+                        </div>
+
+                        <div class="magic-card rounded-3xl p-7">
+                            <div class="text-gold text-3xl mb-4"><i class="fa-solid fa-seedling"></i></div>
+                            <h3 class="text-xl font-bold text-white mb-2">חממות הצמחים המכושפים</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                כיפות בדולח ענקיות המאכלסות צמחי דודאים צורחים, פרחי ירח זוהרים ושרכים הטווים חוטי קסם טבעיים.
+                            </p>
+                        </div>
+
+                        <div class="magic-card rounded-3xl p-7">
+                            <div class="text-gold text-3xl mb-4"><i class="fa-solid fa-star-and-crescent"></i></div>
+                            <h3 class="text-xl font-bold text-white mb-2">אולם הנשפים המרחף</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                תקרת האולם משקפת את שמי הלילה האמיתיים. אלפי נרות מרחפים באוויר ומאירים את סעודות החג וטקסי המיון.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Headmasters / Faculty -->
+                <div>
+                    <h2 class="text-3xl font-bold text-center text-gold-gradient mb-10">מועצת המגים הבכירה</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="magic-card rounded-2xl p-6 text-center">
+                            <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-amethyst to-gold/40 border-2 border-gold flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-hat-wizard text-3xl text-gold-light"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">מנהל האקדמיה אוריון</h4>
+                            <span class="text-xs text-gold block mb-2">שומר חותם הטירה</span>
+                            <p class="text-xs text-gray-400">מומחה ללחשים עתיקים ולהגנת הטירה מזה 140 שנה.</p>
+                        </div>
+
+                        <div class="magic-card rounded-2xl p-6 text-center">
+                            <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-amethyst to-gold/40 border-2 border-gold flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-flask text-3xl text-gold-light"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">פרופ' סרינה וייל</h4>
+                            <span class="text-xs text-gold block mb-2">ראש החוג לשיקויים</span>
+                            <p class="text-xs text-gray-400">ממציאת שיקוי הערפל הכסוף וזוכת עיטור מרלין.</p>
+                        </div>
+
+                        <div class="magic-card rounded-2xl p-6 text-center">
+                            <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-amethyst to-gold/40 border-2 border-gold flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-eye text-3xl text-gold-light"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">האורקל אסטריה</h4>
+                            <span class="text-xs text-gold block mb-2">ראש מגמת אסטרונומיה</span>
+                            <p class="text-xs text-gray-400">קוראת את תנועת השביטים ומנחה את תלמידי החיזוי.</p>
+                        </div>
+
+                        <div class="magic-card rounded-2xl p-6 text-center">
+                            <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-amethyst to-gold/40 border-2 border-gold flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-dragon text-3xl text-gold-light"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">פרופ' ברנבי אוק</h4>
+                            <span class="text-xs text-gold block mb-2">אוצר היצורים הפלאיים</span>
+                            <p class="text-xs text-gray-400">חוקר דרקונים מוסמך ומגן היערות המכושפים.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- PAGE 4: צור קשר / דואר ינשופים (CONTACT)                  -->
+        <!-- ========================================================= -->
+        <section id="page-contact" class="page-section">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 pb-24">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-gold text-sm font-semibold tracking-widest">מגדל הינשופים המלכותי</span>
+                    <h1 class="text-4xl sm:text-5xl font-bold text-gold-gradient mt-2 mb-4">שליחת ינשוף והרשמה</h1>
+                    <p class="text-gray-300">
+                        מלאו את מגילת הקלף שלפניכם. ינשוף דואר מהיר ימריא מיד אל משרדי הקבלה של האקדמיה ויחזור אליכם עם תשובה חתומה בשעווה.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Contact Info / Magical Coordinates -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="magic-card rounded-3xl p-7 space-y-6">
+                            <h3 class="text-2xl font-bold text-gold-light border-b border-gold/20 pb-3">דרכי התקשרות קסומות</h3>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-11 h-11 rounded-xl bg-amethyst border border-gold/40 flex items-center justify-center shrink-0 text-gold">
+                                    <i class="fa-solid fa-feather-pointed"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">דואר ינשופים ישיר</h4>
+                                    <p class="text-sm text-gray-300">מגדל הצפון, צריח 7, אקדמיית אלדוריה</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-11 h-11 rounded-xl bg-amethyst border border-gold/40 flex items-center justify-center shrink-0 text-gold">
+                                    <i class="fa-solid fa-fire-flame-curved"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">רשת אבקת הפלו</h4>
+                                    <p class="text-sm text-gray-300">אח מס' 42 — "היכל המבקרים של אלדוריה"</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-11 h-11 rounded-xl bg-amethyst border border-gold/40 flex items-center justify-center shrink-0 text-gold">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">טלפתיה אלקטרונית (למוגלגים)</h4>
+                                    <p class="text-sm text-gray-300" dir="ltr">owls@eldoria-academy.magic</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Magical Note -->
+                        <div class="p-5 rounded-2xl bg-amethyst/30 border border-gold/25 text-xs text-purple-200 leading-relaxed">
+                            <i class="fa-solid fa-circle-info text-gold ml-1"></i>
+                            <strong>שימו לב:</strong> אין צורך לרכוש שרביט מראש. כל תלמיד שיתקבל יוזמן לסיור מודרך בסמטת הכוכבים להתאמת שרביט אישית.
+                        </div>
+                    </div>
+
+                    <!-- Owl Post Interactive Form -->
+                    <div class="lg:col-span-7">
+                        <div class="magic-card rounded-3xl p-8 sm:p-10 relative overflow-hidden">
+                            
+                            <!-- Form Element -->
+                            <form id="owl-form" onsubmit="handleOwlSubmit(event)" class="space-y-5">
+                                <div>
+                                    <label for="wizard-name" class="block text-sm font-medium text-gold-light mb-2">שם הקוסם / המכשפה המלא *</label>
+                                    <input type="text" id="wizard-name" required placeholder="לדוגמה: אריאל כוכב-ליל"
+                                        class="w-full px-4 py-3.5 rounded-xl bg-midnight/80 border border-gold/30 text-white placeholder-gray-500 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label for="wizard-email" class="block text-sm font-medium text-gold-light mb-2">כתובת למענה (דוא"ל / קן ינשופים) *</label>
+                                        <input type="email" id="wizard-email" required placeholder="wizard@example.com"
+                                            class="w-full px-4 py-3.5 rounded-xl bg-midnight/80 border border-gold/30 text-white placeholder-gray-500 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
+                                    </div>
+
+                                    <div>
+                                        <label for="magic-track" class="block text-sm font-medium text-gold-light mb-2">תחום כישוף מועדף</label>
+                                        <select id="magic-track"
+                                            class="w-full px-4 py-3.5 rounded-xl bg-midnight/80 border border-gold/30 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition">
+                                            <option value="potions">רקיחת שיקויים מתקדמת</option>
+                                            <option value="defense">לחשי הגנה ודו-קרב</option>
+                                            <option value="astronomy">אסטרונומיה וניבוי עתידות</option>
+                                            <option value="creatures">טיפול ביצורים פלאיים</option>
+                                            <option value="alchemy">שינוי צורה ואלכימיה</option>
+                                            <option value="flying">תעופה על מטאטא</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="wizard-message" class="block text-sm font-medium text-gold-light mb-2">תוכן המגילה (ספרו לנו על ניצוץ הקסם שלכם) *</label>
+                                    <textarea id="wizard-message" rows="4" required placeholder="כתבו כאן את פנייתכם למועצת הקבלה..."
+                                        class="w-full px-4 py-3.5 rounded-xl bg-midnight/80 border border-gold/30 text-white placeholder-gray-500 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn-gold w-full py-4 rounded-2xl text-lg flex items-center justify-center gap-3">
+                                    <span>חתום בשעווה ושלח ינשוף</span>
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </form>
+
+                            <!-- Magical Confirmation State (Shown after form submission) -->
+                            <div id="owl-confirmation" class="hidden text-center py-10 space-y-5">
+                                <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-gold to-amber-700 flex items-center justify-center shadow-[0_0_40px_rgba(212,175,55,0.7)] animate-bounce">
+                                    <i class="fa-solid fa-stamp text-4xl text-midnight"></i>
+                                </div>
+                                <h3 class="text-3xl font-bold text-gold-gradient">המגילה נחתמה ונשלחה!</h3>
+                                <p id="confirmation-text" class="text-gray-200 max-w-md mx-auto leading-relaxed"></p>
+                                <div class="pt-4">
+                                    <button onclick="resetOwlForm()" class="px-6 py-2.5 rounded-full border border-gold/50 text-gold-light hover:bg-royal transition text-sm">
+                                        שליחת מגילה נוספת
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-midnight/90 border-t border-gold/20 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-hat-wizard text-gold"></i>
+                <span class="font-magical text-gold-light font-bold">האקדמיה הגבוהה לכישוף וקסם - אלדוריה</span>
+            </div>
+            <div>
+                © כל הזכויות שמורות למועצת המגים העליונה • מוגן בלחשי הסתרה
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        /**
+         * 1. Single-Page Application (SPA) Navigation Controller
+         * Switches seamlessly between the 4 views without page reload.
+         */
+        function navigateTo(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+            });
+
+            // Show target section
+            const targetSection = document.getElementById(`page-${pageId}`);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Update Desktop Nav active states
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if (link.getAttribute('data-target') === pageId) {
+                    link.classList.add('active-nav');
+                } else {
+                    link.classList.remove('active-nav');
+                }
+            });
+
+            // Update Mobile Nav active states
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileLinks.forEach(link => {
+                if (link.getAttribute('data-target') === pageId) {
+                    link.classList.add('bg-midnight/70', 'text-gold-light');
+                    link.classList.remove('text-gray-200');
+                } else {
+                    link.classList.remove('bg-midnight/70', 'text-gold-light');
+                    link.classList.add('text-gray-200');
+                }
+            });
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileIcon = document.getElementById('mobile-menu-icon');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileIcon.classList.remove('fa-xmark');
+                mobileIcon.classList.add('fa-bars');
+            }
+
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile Menu Toggle Event
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileIcon = document.getElementById('mobile-menu-icon');
+            mobileMenu.classList.toggle('hidden');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileIcon.classList.remove('fa-xmark');
+                mobileIcon.classList.add('fa-bars');
+            } else {
+                mobileIcon.classList.remove('fa-bars');
+                mobileIcon.classList.add('fa-xmark');
+            }
+        });
+
+        /**
+         * 2. Magical Sorting Compass Widget ("מצפן המיון המכושף")
+         */
+        const houseData = {
+            phoenix: {
+                name: 'בית להבת הפניקס (Ignis)',
+                desc: 'ביתם של האמיצים, המנהיגים ובעלי הלב הלוהט. תלמידי הבית מצטיינים בלחשי הגנה, דו-קרב וקסמי אור רבי-עוצמה.',
+                wand: 'השרביט שלך: עץ אלון אדום, 11.5 אינץ׳, ליבת נוצת עוף חול'
+            },
+            ocean: {
+                name: 'בית מעמקי הים (Abyssus)',
+                desc: 'ביתם של החוקרים, ההוגים ורואי הנסתר. תלמידי הבית מובילים באסטרונומיה, חיזוי עתידות ופענוח כתבים עתיקים.',
+                wand: 'השרביט שלך: עץ ערבה כסופה, 12 אינץ׳, ליבת שערת בת-ים'
+            },
+            oak: {
+                name: 'בית שורש האלון (Sylva)',
+                desc: 'ביתם של המרפאים, הנאמנים ושומרי הטבע. תלמידי הבית הם אמני השיקויים והתקשורת עם יצורים פלאיים.',
+                wand: 'השרביט שלך: עץ טיליה עתיק, 10.75 אינץ׳, ליבת קרן חד-קרן'
+            },
+            wind: {
+                name: 'בית כנפי הרוח (Ventus)',
+                desc: 'ביתם של ההרפתקנים, היצירתיים ופורצי הדרך. תלמידי הבית שולטים בשמיים, בתעופה ובאומנות האלכימיה.',
+                wand: 'השרביט שלך: עץ מילה קליל, 13 אינץ׳, ליבת נימי לב דרקון'
+            }
+        };
+
+        function runSortingRitual(elementKey) {
+            const resultBox = document.getElementById('sorting-result');
+            const houseNameEl = document.getElementById('result-house-name');
+            const houseDescEl = document.getElementById('result-house-desc');
+            const wandSpecEl = document.getElementById('result-wand-spec');
+
+            const chosen = houseData[elementKey];
+            if (!chosen) return;
+
+            houseNameEl.textContent = chosen.name;
+            houseDescEl.textContent = chosen.desc;
+            wandSpecEl.textContent = chosen.wand;
+
+            resultBox.classList.remove('hidden');
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        /**
+         * 3. Owl Post Contact Form Handler (No alert() used!)
+         */
+        function handleOwlSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('wizard-name').value.trim();
+            const trackSelect = document.getElementById('magic-track');
+            const trackText = trackSelect.options[trackSelect.selectedIndex].text;
+
+            const formEl = document.getElementById('owl-form');
+            const confirmEl = document.getElementById('owl-confirmation');
+            const confirmTextEl = document.getElementById('confirmation-text');
+
+            confirmTextEl.innerHTML = `תודה לך, <strong class="text-gold-light">${name}</strong>! ינשוף הדואר המלכותי המריא כעת עם בקשתך למסלול <strong class="text-gold-light">${trackText}</strong>. צפו לבשורה בחלונכם עם זריחת הירח.`;
+
+            formEl.classList.add('hidden');
+            confirmEl.classList.remove('hidden');
+        }
+
+        function resetOwlForm() {
+            document.getElementById('owl-form').reset();
+            document.getElementById('owl-confirmation').classList.add('hidden');
+            document.getElementById('owl-form').classList.remove('hidden');
+        }
+
+        /**
+         * 4. Floating Magical Sparkles & Stardust Canvas Animation
+         */
+        window.onload = function() {
+            const canvas = document.getElementById('magic-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Sparkle {
+                constructor() {
+                    this.reset();
+                }
+
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2.2 + 0.5;
+                    this.speedY = -(Math.random() * 0.4 + 0.1);
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.alpha = Math.random() * 0.8 + 0.2;
+                    this.alphaChange = (Math.random() * 0.015) + 0.005;
+                    // Gold or soft violet sparkle
+                    this.color = Math.random() > 0.3 ? '212, 175, 55' : '192, 132, 252';
+                }
+
+                update() {
+                    this.y += this.speedY;
+                    this.x += this.speedX;
+                    this.alpha += this.alphaChange;
+
+                    if (this.alpha >= 1 || this.alpha <= 0.1) {
+                        this.alphaChange = -this.alphaChange;
+                    }
+
+                    if (this.y < -10) {
+                        this.y = canvas.height + 10;
+                        this.x = Math.random() * canvas.width;
+                    }
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${this.color}, ${this.alpha})`;
+                    ctx.shadowBlur = 8;
+                    ctx.shadowColor = `rgba(${this.color}, 0.8)`;
+                    ctx.fill();
+                }
+            }
+
+            // Initialize 65 floating magical particles
+            const particleCount = Math.min(65, Math.floor(window.innerWidth / 20));
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Sparkle());
+            }
+
+            function animateSparkles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animateSparkles);
+            }
+
+            animateSparkles();
+        };
+    </script>
+</body>
+</html>
